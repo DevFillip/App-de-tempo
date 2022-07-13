@@ -1,0 +1,72 @@
+.app{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('./imagens/wallpapersden.com_monaco-at-night_3840x2160.jpg');
+    background-size: cover;
+}
+
+.app h1{
+    padding-top: 100px;
+    font-size: 50px;
+    color: white;
+}
+.pesquisa input{
+    border-radius:40px;
+    border: 1px solid rgba(255, 255, 255, 0.81);
+    padding: 10px 12px;
+    margin-top: 10px;
+    background-color: transparent;
+    outline: 0;
+    color: white;
+    font-size: 17px;
+}
+
+.pesquisa input::placeholder{
+    color: rgba(255, 255, 255, 0.744);
+    font-size: 17px;
+}
+
+.container{
+    max-width: 600px;
+    height: 300px;
+    width: 80%;
+    background-color: white;
+    border-radius: 30px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.localizacao h2{
+    color: black;
+    font-size: 50px;
+    padding-top: 30px;
+    margin-left: 30px;
+    text-align: left;
+}
+
+.temp h1{
+    margin-top: -70px;
+    font-size: 55px;
+    color: black;
+}
+
+.informacoes{
+    display: flex;
+    width: 100%;
+    padding: 0 36px;
+    margin-top: 50px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.informacoes p{
+    color: black;
+    font-weight: bold;
+}
+
+.informacoes h3{
+    color: gray;
+    font-size: 19px;
+}
