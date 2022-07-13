@@ -1,5 +1,9 @@
 import {useState} from 'react'
 import './styles.css'
+import {FaWind, FaCloudSun, FaTemperatureLow} from 'react-icons/fa'
+import {WiHumidity} from 'react-icons/wi'
+
+
 
 function App() {
   const [data, setData] = useState({})
@@ -35,7 +39,7 @@ function App() {
 
       {data.name != undefined && 
       <div className="container">
-        <div className="top">
+        <div className="topo">
           <div className="localizacao">
             <h2>{data.name}</h2>
           </div>
@@ -45,21 +49,35 @@ function App() {
         </div>
         
           <div className="informacoes">
-            <div className="description">
-              {data.weather ? <p>{data.weather[0].main}</p> : null}
-              <h3>Tempo</h3>
+          <h3>Informações do tempo</h3>
+
+            <div className="descricao">
+              <FaCloudSun/>
+              <div>
+                {data.weather ? <p>{data.weather[0].main}</p> : null}
+                <span>Tempo</span>
+              </div>
             </div>
-            <div className="feels">
-              {data.main ? <p>{data.main.feels_like.toFixed()}</p> : null}
-              <h3>Sensação</h3>
+            <div className="sensacao">
+              <FaTemperatureLow/>
+              <div>
+                {data.main ? <p>{data.main.feels_like.toFixed()}°c</p> : null}
+                <span>Sensação</span>
+                </div>
             </div>
-            <div className="humidity">
+            <div className="humidity">  
+              <WiHumidity/>
+              <div>
               {data.main ? <p>{data.main.humidity.toFixed()}%</p> : null}
-              <h3>Humidade</h3>
+              <span>Humidade</span>
+                </div>
             </div>
             <div className="wind">
+              <FaWind/>
+              <div>
               {data.wind ? <p>{data.wind.speed.toFixed()} MPH</p> : null}
-              <h3>Vento</h3>
+              <span>Vento</span>
+                </div>
             </div>
           </div>
       </div>
