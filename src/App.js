@@ -13,16 +13,21 @@ function App() {
 
   const searchLocation = (event) => {
     if(event.key === 'Enter'){
+      if(location != ){
+        console.log('Lugar inválido')
+      }else{
         fetch(url)
         .then(resp => resp.json())
         .then((data) => {
           setData(data)
         })
+        .catch((err) => 'erro não encontrado' + err)
       setlocation('')
       }
+      }
+        
     }
-  
-
+    
   return (
     <div className="app">
       <h1>Weather app</h1>
@@ -35,16 +40,18 @@ function App() {
         placeholder="Cidade..."
         type='text'
         ></input>
+        {}
       </div>
 
       {data.name != undefined && 
+       <>
       <div className="container">
         <div className="topo">
           <div className="localizacao">
             <h2>{data.name}</h2>
           </div>
           <div className="temp">
-            {data.main ?  <h1>{data.main.temp.toFixed()}°c</h1> : null}
+            {data.main ?  <h2>{data.main.temp.toFixed()}°c</h2> : null}
           </div>
         </div>
         
@@ -81,7 +88,13 @@ function App() {
             </div>
           </div>
       </div>
+      <div className='copy'>
+        <span>&copy; Feito por @Fillip_Hudson</span>
+      </div>
+      </>
       }
+      
+
     </div>
   );
 }
