@@ -28,6 +28,11 @@
     font-size: 17px;
 }
 
+.mensagem{
+    color: white;
+    margin-top: 20px;
+}
+
 .container-dados{
     max-width: 500px;
     width: 80%;
@@ -43,9 +48,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 50px;
     padding-top: 20px;
     padding-bottom: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+
     background-color: rgb(255, 68, 0);
 }
 
@@ -66,8 +73,8 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
-    margin-left: 20px;
-    padding: 0 30px;
+    padding-left: 40px;
+    padding-right: 40px;
     padding-top: 15px;
     flex-wrap: wrap;
 }
@@ -83,6 +90,10 @@
     font-size: 21px;
     text-align: left;
 }
+
+.sensacao,
+.vento{
+padding-left: 40px;}
 
 .descricao,
 .sensacao,
@@ -122,6 +133,8 @@
 }
 
 
+
+
 @media screen and (max-width:768px) {
     .localizacao h2,
     .temperatura h2{
@@ -129,4 +142,8 @@
         font-size: 28px;
 
     }
+
+.sensacao,
+.vento{
+padding-left: 20px;}
 }

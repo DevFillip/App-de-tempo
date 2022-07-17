@@ -5,19 +5,27 @@ import {WiHumidity} from 'react-icons/wi'
 
 function WeatherApp() {
   const [data, setData] = useState({})
-  const [location, setlocation] = useState('')
+  const [localizacao, setlocalizacao] = useState('')
+  const [mensagem, setMensagem] = useState()
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&lang=pt_br&appid=c94d80840abbfc5e33bb59cbe38c477b`
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${localizacao}&units=metric&lang=pt_br&appid=c94d80840abbfc5e33bb59cbe38c477b`
 
   const pesquisaLocalizacao = (event) => {
     if(event.key === 'Enter'){
         fetch(url)
-        .then(resp => resp.json())
+        .then((resp) => 
+          resp.json()
+        )
         .then((data) => {
-          setData(data)
+          setMensagem('')
+          if(String(data.cod) === '404'){
+            setMensagem('Cidade não encontrada!')
+          }else{
+            setData(data)
+          }
+         
         })
-        .catch((err) => 'erro não encontrado' + err)
-      setlocation('')
+        setlocalizacao('')
       }
     }
     
@@ -27,15 +35,16 @@ function WeatherApp() {
 
       <div className='pesquisa'>
         <input
-        value={location}
-        onChange={event => setlocation(event.target.value)}
+        value={localizacao}
+        onChange={event => setlocalizacao(event.target.value)}
         onKeyPress={pesquisaLocalizacao}
         placeholder="Cidade..."
         type='text'
         ></input>
       </div>
 
-      {data.name != undefined && 
+      {mensagem && <h3 className='mensagem'>{mensagem}</h3>}
+      {data.name !== undefined && 
     <>
       <div className="container-dados">
 
