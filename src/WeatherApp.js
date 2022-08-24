@@ -31,7 +31,7 @@ function WeatherApp() {
     
   return (
     <div className="weather-app">
-      <h1>Weather app</h1>
+      <h1>Aplicativo de Tempo</h1>
 
       <div className='pesquisa'>
         <input
